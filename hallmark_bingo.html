@@ -95,6 +95,7 @@ function initialize_bingo() {
 
   for (let r = 1; r <= 5; r++) {
     for (let c = 1; c <= 5; c++) {
+        if (r == 3 && c == 3) { continue; }
         var id = "r" + r + "c" + c;
         var index = (r - 1) * 5 + c - 1;
         var item = bingo_items[index];
@@ -129,7 +130,7 @@ function bingo_on_click(e) {
         <div class="box" id="r2c5" onclick="bingo_on_click('r2c5')">1</div>
         <div class="box" id="r3c1" onclick="bingo_on_click('r3c1')">1</div>
         <div class="box" id="r3c2" onclick="bingo_on_click('r3c2')">1</div>
-        <div class="box2" id="r3c3">1</div>
+        <div class="box2" id="r3c3">FREE SPACE!</div>
         <div class="box" id="r3c4" onclick="bingo_on_click('r3c4')">1</div>
         <div class="box" id="r3c5" onclick="bingo_on_click('r3c5')">1</div>
         <div class="box" id="r4c1" onclick="bingo_on_click('r4c1')">1</div>
