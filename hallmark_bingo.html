@@ -71,6 +71,43 @@ var bingo_items = [
     "Wrapping presents"
 ];
 
+var bingo_items_valentines = [
+  "Cute pet dog",
+  "Someone doesn't like Valentine's Day",
+  "Someone needs to work on Valentine's",
+  "Bouquet of roses",
+  "Ridiculously fancy home",
+  "First kiss in last three minutes of film",
+  "Kid pushing hard for new parent",
+  "Lead characters physically bump into each other",
+  "High school sweetheart",
+  "Career comes first",
+  "Wise ethnic friend",
+  "Leads don't get along",
+  "Tiny misunderstanding derails relationship",
+  "Crisis at work",
+  "Kids need help with something",
+  "Visiting coffeeshop",
+  "'You like him!'",
+  "Same set repurposed for new business office",
+  "Wealthy benefactor steps in",
+  "Parents represent true love",
+  "Modern technology presents problems",
+  "Obviously empty coffee cup",
+  "Champagne that doesn't have bubbles",
+  "A party needs organizing",
+  "TEMP",
+  "TEMP",
+  "TEMP",
+  "TEMP",
+  "TEMP",
+  "TEMP",
+  "TEMP",
+  "TEMP",
+  "TEMP",
+  "TEMP"
+];
+
 // courtesy https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
   let currentIndex = array.length,  randomIndex;
@@ -91,6 +128,12 @@ function shuffle(array) {
 }
 
 function initialize_bingo() {
+  var queryString = window.location.search;
+  var urlParams = new URLSearchParams(queryString);
+  if (urlParams.has('valentine')) {
+    bingo_items = bingo_items_valentines;
+  }
+  
   shuffle(bingo_items);
 
   for (let r = 1; r <= 5; r++) {
