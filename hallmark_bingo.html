@@ -28,6 +28,10 @@
 }
     </style>
     <script>
+window.addEventListener('load', function () {
+  initialize_bingo();
+});
+
 var bingo_items = [
     "Dead parent",
     "Widower",
@@ -86,15 +90,17 @@ function shuffle(array) {
   return array;
 }
 
-shuffle(bingo_items);
+function initialize_bingo() {
+  shuffle(bingo_items);
 
-for (let r = 1; r <= 5; r++) {
+  for (let r = 1; r <= 5; r++) {
     for (let c = 1; c <= 5; c++) {
         var id = "r" + r + "c" + c;
         var index = (r - 1) * 5 + c - 1;
         var item = bingo_items[index];
         document.getElementById(id).innerText = item;
     }
+  }
 }
 
 function bingo_on_click(e) {
