@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <style>
+.box {
+    background-color: lightgrey;
+    color: darkblue;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 50%;
+}
+  
+.box2 {
+    background-color: darkblue;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 50%;
+}
+  
+.wrapper {
+    width: 100vw;
+    display: grid;
+    grid-gap: 10px;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+}
+    </style>
+    <script>
+var bingo_items = [
+    "Dead parent",
+    "Widower",
+    "Main character can't stay in town long",
+    "Really fake snow",
+    "Failing small business",
+    "Kid pushing hard for new parent",
+    "Someone hates Christmas",
+    "Lead characters physically bump into each other",
+    "Making a family recipe",
+    "Hot cocoa",
+    "Decorating a Christmas tree",
+    "A cute pet dog",
+    "Carol singing",
+    "High school sweetheart",
+    "Ugly Christmas sweater",
+    "Disturbing angel",
+    "Mistletoe",
+    "Flanel shirt",
+    "Looking for the perfect tree",
+    "Christmas tree lighting ceremony",
+    "Career comes first",
+    "Wise ethnic friend",
+    "Leads don't get along",
+    "Travel problems",
+    "Tiny misunderstanding derails relationship",
+    "Crisis at work",
+    "Kids need help with something",
+    "Sentimental gift",
+    "First kiss in last three minutes of film",
+    "Visiting coffeeshop",
+    "Nutcracker",
+    "Eggnog",
+    "Candy cane",
+    "Absurdly fancy home",
+    "Up for a promotion",
+    "Wrapping presents"
+];
+
+// courtesy https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+shuffle(bingo_items);
+
+for (let r = 1; r <= 5; r++) {
+    for (let c = 1; c <= 5; c++) {
+        var id = "r" + r + "c" + c;
+        var index = (r - 1) * 5 + c - 1;
+        var item = bingo_items[index];
+        document.getElementById(id).innerText = item;
+    }
+}
+
+function bingo_on_click(e) {
+    var target = document.getElementById(e);
+    if (target.classList.contains("box")) {
+        target.classList.remove("box");
+        target.classList.add("box2");
+    } else {
+        target.classList.remove("box2");
+        target.classList.add("box");
+    }
+}
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+        <div class="box" id="r1c1" onclick="bingo_on_click('r1c1')">1</div>
+        <div class="box" id="r1c2" onclick="bingo_on_click('r1c2')">1</div>
+        <div class="box" id="r1c3" onclick="bingo_on_click('r1c3')">1</div>
+        <div class="box" id="r1c4" onclick="bingo_on_click('r1c4')">1</div>
+        <div class="box" id="r1c5" onclick="bingo_on_click('r1c5')">1</div>
+        <div class="box" id="r2c1" onclick="bingo_on_click('r2c1')">1</div>
+        <div class="box" id="r2c2" onclick="bingo_on_click('r2c2')">1</div>
+        <div class="box" id="r2c3" onclick="bingo_on_click('r2c3')">1</div>
+        <div class="box" id="r2c4" onclick="bingo_on_click('r2c4')">1</div>
+        <div class="box" id="r2c5" onclick="bingo_on_click('r2c5')">1</div>
+        <div class="box" id="r3c1" onclick="bingo_on_click('r3c1')">1</div>
+        <div class="box" id="r3c2" onclick="bingo_on_click('r3c2')">1</div>
+        <div class="box2" id="r3c3">1</div>
+        <div class="box" id="r3c4" onclick="bingo_on_click('r3c4')">1</div>
+        <div class="box" id="r3c5" onclick="bingo_on_click('r3c5')">1</div>
+        <div class="box" id="r4c1" onclick="bingo_on_click('r4c1')">1</div>
+        <div class="box" id="r4c2" onclick="bingo_on_click('r4c2')">1</div>
+        <div class="box" id="r4c3" onclick="bingo_on_click('r4c3')">1</div>
+        <div class="box" id="r4c4" onclick="bingo_on_click('r4c4')">1</div>
+        <div class="box" id="r4c5" onclick="bingo_on_click('r4c5')">1</div>
+        <div class="box" id="r5c1" onclick="bingo_on_click('r5c1')">1</div>
+        <div class="box" id="r5c2" onclick="bingo_on_click('r5c2')">1</div>
+        <div class="box" id="r5c3" onclick="bingo_on_click('r5c3')">1</div>
+        <div class="box" id="r5c4" onclick="bingo_on_click('r5c4')">1</div>
+        <div class="box" id="r5c5" onclick="bingo_on_click('r5c5')">1</div>
+    </div>
+  </body>
+</html>
